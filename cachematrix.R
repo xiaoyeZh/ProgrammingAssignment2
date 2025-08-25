@@ -1,8 +1,14 @@
-## Put comments here that give an overall description of what your
-## functions do
+## This script provides two functions that work together to cache
+## the inverse of a matrix. Since calculating the inverse can be
+## computationally expensive, caching avoids repeated calculations:
+## 1. makeCacheMatrix: creates a special "matrix" object that
+## can store both the matrix itself and its cached inverse.
+## 2. cacheSolve: computes the inverse of the special "matrix"
+## object. If the inverse has already been calculated and
+## cached, it retrieves the cached value instead of recomputing.
 
-## Write a short comment describing this function
-
+## makeCacheMatrix creates a special "matrix" object that can store
+## a matrix and cache its inverse for later retrieval.
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL 
 
@@ -29,8 +35,9 @@ makeCacheMatrix <- function(x = matrix()) {
 
 
 
-## Write a short comment describing this function
-
+## cacheSolve computes the inverse of the special "matrix" returned by
+## makeCacheMatrix. If the inverse is already cached, it retrieves the
+## cached value instead of recomputing it.
 cacheSolve <- function(x, ...) {
         inv <- x$getinv() 
 
